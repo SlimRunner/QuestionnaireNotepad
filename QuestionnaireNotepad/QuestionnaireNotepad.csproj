@@ -54,6 +54,7 @@
     </Compile>
     <Compile Include="Libraries\AnswerBlank.cs" />
     <Compile Include="Libraries\AnswerBoolean.cs" />
+    <Compile Include="Libraries\AnswerMultiInclusive.cs" />
     <Compile Include="Libraries\AnswerSharedTypes.cs" />
     <Compile Include="Libraries\IAnswerType.cs" />
     <Compile Include="Program.cs" />

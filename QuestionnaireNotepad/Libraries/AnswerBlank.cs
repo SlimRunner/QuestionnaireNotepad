@@ -9,7 +9,7 @@ namespace QuestionnaireNotepad.Libraries
     /// <summary>
     /// Defines a blank field for student-typed answers.
     /// </summary>
-    class AnswerBlank : IAnswerType
+    class AnswerBlank : IAnswerType<string>
     {
         /// <summary>
         /// Contains the body of text of the answer.
@@ -38,7 +38,10 @@ namespace QuestionnaireNotepad.Libraries
         /// Returns a plain-text friendly value for this object.
         /// </summary>
         /// <returns>A string that represents the content of the object</returns>
-        public string GetFlatText() => BodyText;
+        public string GetFlatText()
+        {
+            return BodyText;
+        }
 
         /// <summary>
         /// Returns a string with the text of only one item at the selected index.
@@ -48,7 +51,7 @@ namespace QuestionnaireNotepad.Libraries
         /// <exception cref="ArgumentException"></exception>
         public string GetItem(int index)
         {
-            if (index <= GetTotalChoices())
+            if (index < GetTotalChoices() && index >= 0)
             {
                 return GetFlatText();
             }
@@ -62,12 +65,18 @@ namespace QuestionnaireNotepad.Libraries
         /// Gets the number of answers this object contains
         /// </summary>
         /// <returns>Integer that represents an index</returns>
-        public int GetTotalChoices() => 1;
+        public int GetTotalChoices()
+        {
+            return 1;
+        }
 
         /// <summary>
         /// Returns the type of this answer.
         /// </summary>
         /// <returns>Returns an value defined by the enumeration AnswerTypes</returns>
-        AnswerTypes IAnswerType.GetType() => AnswerTypes.BLANK;
+        AnswerTypes IAnswerType<string>.GetType()
+        {
+            return AnswerTypes.BLANK;
+        }
     }
 }

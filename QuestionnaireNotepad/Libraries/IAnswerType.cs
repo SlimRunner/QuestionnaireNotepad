@@ -9,7 +9,7 @@ namespace QuestionnaireNotepad.Libraries
     /// <summary>
     /// Interface for types of answers supported
     /// </summary>
-    interface IAnswerType
+    interface IAnswerType<T>
     {
         /// <summary>
         /// Returns a plain-text friendly value for this object.
@@ -23,7 +23,7 @@ namespace QuestionnaireNotepad.Libraries
         /// <param name="index">Index of the answer to retrieve.</param>
         /// <returns>A string that represents the content of one item in the object</returns>
         /// <exception cref="ArgumentException"></exception>
-        string GetItem(int index);
+        T GetItem(int index);
 
         /// <summary>
         /// Gets the number of answers this object contains

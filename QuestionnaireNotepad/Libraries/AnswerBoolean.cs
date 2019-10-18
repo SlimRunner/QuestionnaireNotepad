@@ -9,7 +9,7 @@ namespace QuestionnaireNotepad.Libraries
     /// <summary>
     /// Defines a true/false field for answers.
     /// </summary>
-    class AnswerBoolean : IAnswerType
+    class AnswerBoolean : IAnswerType<string>
     {
         public TriStateQuestion Value { get; set; }
 
@@ -68,7 +68,7 @@ namespace QuestionnaireNotepad.Libraries
         /// <exception cref="ArgumentException"></exception>
         public string GetItem(int index)
         {
-            if (index <= GetTotalChoices())
+            if (index < GetTotalChoices() && index >= 0)
             {
                 return GetFlatText();
             }
@@ -82,12 +82,18 @@ namespace QuestionnaireNotepad.Libraries
         /// Gets the number of answers this object contains
         /// </summary>
         /// <returns>Integer that represents an index</returns>
-        public int GetTotalChoices() => 1;
+        public int GetTotalChoices()
+        {
+            return 1;
+        }
 
         /// <summary>
         /// Returns the type of this answer.
         /// </summary>
         /// <returns>Returns an value defined by the enumeration AnswerTypes</returns>
-        AnswerTypes IAnswerType.GetType() => AnswerTypes.BOOLEAN;
+        AnswerTypes IAnswerType<string>.GetType()
+        {
+            return AnswerTypes.BOOLEAN;
+        }
     }
 }
