@@ -22,6 +22,7 @@ namespace QuestionnaireNotepad.Libraries
         /// </summary>
         /// <param name="index">Index of the answer to retrieve.</param>
         /// <returns>A string that represents the content of one item in the object</returns>
+        /// <exception cref="ArgumentException"></exception>
         string GetItem(int index);
 
         /// <summary>

@@ -28,4 +28,11 @@ namespace QuestionnaireNotepad.Libraries
         /// </summary>
         MULTI_IN = 3
     }
+
+    public enum TriStateQuestion
+    {
+        EMPTY = -1,
+        FALSE = 0,
+        TRUE = 1
+    }
 }

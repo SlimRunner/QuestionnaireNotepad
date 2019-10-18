@@ -7,21 +7,18 @@ using System.Threading.Tasks;
 namespace QuestionnaireNotepad.Libraries
 {
     /// <summary>
-    /// Defines a blank field for student-typed answers.
+    /// Defines a true/false field for answers.
     /// </summary>
-    class AnswerBlank : IAnswerType
+    class AnswerBoolean : IAnswerType
     {
-        /// <summary>
-        /// Contains the body of text of the answer.
-        /// </summary>
-        public string BodyText { get; set; }
+        public TriStateQuestion Value { get; set; }
 
         /// <summary>
         /// Default constructor.
         /// </summary>
-        public AnswerBlank()
+        public AnswerBoolean()
         {
-            BodyText = "";
+            Value = TriStateQuestion.EMPTY;
         }
 
         /// <summary>
@@ -29,16 +26,39 @@ namespace QuestionnaireNotepad.Libraries
         /// </summary>
         /// <param name="newValue">Value to be assigned for this item</param>
         /// <exception cref="ArgumentException"></exception>
-        public AnswerBlank(string newValue)
+        public AnswerBoolean(TriStateQuestion newValue)
         {
-            BodyText = newValue;
+            switch (newValue)
+            {
+                case TriStateQuestion.EMPTY:
+                case TriStateQuestion.FALSE:
+                case TriStateQuestion.TRUE:
+                    Value = newValue;
+                    break;
+                default:
+                    throw new ArgumentException("Object cannot initialize with the value provided.", "newValue");
+            }
         }
 
         /// <summary>
         /// Returns a plain-text friendly value for this object.
         /// </summary>
         /// <returns>A string that represents the content of the object</returns>
-        public string GetFlatText() => BodyText;
+        /// <exception cref="Exception"></exception>
+        public string GetFlatText()
+        {
+            switch (Value)
+            {
+                case TriStateQuestion.EMPTY:
+                    return "";
+                case TriStateQuestion.FALSE:
+                    return "False";
+                case TriStateQuestion.TRUE:
+                    return "True";
+                default:
+                    throw new Exception("Invalid internal state. Object has corrupt data.");
+            }
+        }
 
         /// <summary>
         /// Returns a string with the text of only one item at the selected index.
@@ -68,6 +88,6 @@ namespace QuestionnaireNotepad.Libraries
         /// Returns the type of this answer.
         /// </summary>
         /// <returns>Returns an value defined by the enumeration AnswerTypes</returns>
-        AnswerTypes IAnswerType.GetType() => AnswerTypes.BLANK;
+        AnswerTypes IAnswerType.GetType() => AnswerTypes.BOOLEAN;
     }
 }
