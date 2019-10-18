@@ -52,6 +52,7 @@
     <Compile Include="GUI\DataManager.Designer.cs">
       <DependentUpon>DataManager.cs</DependentUpon>
     </Compile>
+    <Compile Include="Libraries\AnswerBlank.cs" />
     <Compile Include="Libraries\AnswerSharedTypes.cs" />
     <Compile Include="Libraries\IAnswerType.cs" />
     <Compile Include="Program.cs" />

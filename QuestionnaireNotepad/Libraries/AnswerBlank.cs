@@ -7,33 +7,48 @@ using System.Threading.Tasks;
 namespace QuestionnaireNotepad.Libraries
 {
     /// <summary>
-    /// Interface for types of answers supported
+    /// Defines a blank field for student-typed answers.
     /// </summary>
-    interface IAnswerType
+    class AnswerBlank : IAnswerType
     {
+        /// <summary>
+        /// Contains the body of text of the answer.
+        /// </summary>
+        public string BodyText { get; set; }
+
         /// <summary>
         /// Returns a plain-text friendly value for this object.
         /// </summary>
         /// <returns>A string that represents the content of the object</returns>
-        string GetFlatText();
+        public string GetFlatText() => BodyText;
 
         /// <summary>
         /// Returns a string with the text of only one item at the selected index.
         /// </summary>
         /// <param name="index">Index of the answer to retrieve.</param>
         /// <returns>A string that represents the content of one item in the object</returns>
-        string GetItem(int index);
+        public string GetItem(int index)
+        {
+            if (index <= GetTotalChoices())
+            {
+                return BodyText;
+            }
+            else
+            {
+                throw new IndexOutOfRangeException();
+            }
+        }
 
         /// <summary>
         /// Gets the number of answers this object contains
         /// </summary>
         /// <returns>Integer that represents an index</returns>
-        int GetTotalChoices();
+        public int GetTotalChoices() => 1;
 
         /// <summary>
         /// Returns the type of this answer.
         /// </summary>
         /// <returns>Returns an value defined by the enumeration AnswerTypes</returns>
-        AnswerTypes GetType();
+        AnswerTypes IAnswerType.GetType() => AnswerTypes.BLANK;
     }
 }
