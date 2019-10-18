@@ -56,7 +56,7 @@ namespace QuestionnaireNotepad.Libraries
 
             foreach (var item in Choices)
             {
-                retval += item + "\n";
+                retval += item.Key + ":" + item.Value + ",";
             }
 
             return retval;
