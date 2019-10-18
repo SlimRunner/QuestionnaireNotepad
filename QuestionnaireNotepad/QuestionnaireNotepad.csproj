@@ -46,10 +46,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataManager.cs">
+    <Compile Include="GUI\DataManager.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DataManager.Designer.cs">
+    <Compile Include="GUI\DataManager.Designer.cs">
       <DependentUpon>DataManager.cs</DependentUpon>
     </Compile>
     <Compile Include="Libraries\AnswerSharedTypes.cs" />
