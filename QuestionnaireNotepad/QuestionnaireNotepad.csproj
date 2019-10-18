@@ -46,12 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataManager.cs">
+    <Compile Include="GUI\DataManager.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DataManager.Designer.cs">
+    <Compile Include="GUI\DataManager.Designer.cs">
       <DependentUpon>DataManager.cs</DependentUpon>
     </Compile>
+    <Compile Include="Libraries\AnswerBlank.cs" />
+    <Compile Include="Libraries\AnswerBoolean.cs" />
+    <Compile Include="Libraries\AnswerMultiExclusive.cs" />
+    <Compile Include="Libraries\AnswerMultiInclusive.cs" />
+    <Compile Include="Libraries\AnswerSharedTypes.cs" />
+    <Compile Include="Libraries\IAnswerType.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -76,8 +82,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Libraries\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
