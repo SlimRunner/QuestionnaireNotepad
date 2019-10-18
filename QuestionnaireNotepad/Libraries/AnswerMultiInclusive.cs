@@ -14,7 +14,7 @@ namespace QuestionnaireNotepad.Libraries
     class AnswerMultiInclusive : IAnswerType<kValPair>
     {
         /// <summary>
-        /// Contains the pair of text and check state of the answer.
+        /// Contains the pair of text and check state of each answer item.
         /// </summary>
         public List<kValPair> Choices
         {
@@ -47,7 +47,7 @@ namespace QuestionnaireNotepad.Libraries
         }
 
         /// <summary>
-        /// Returns a plain-text friendly value for this object.
+        /// Returns a formatted plain-text value for this object.
         /// </summary>
         /// <returns>A string that represents the content of the object</returns>
         public string GetFlatText()
@@ -56,7 +56,7 @@ namespace QuestionnaireNotepad.Libraries
 
             foreach (var item in Choices)
             {
-                retval += item.Key + ":" + item.Value + ",";
+                retval += item.Key + "$:" + item.Value + "$,";
             }
 
             return retval;

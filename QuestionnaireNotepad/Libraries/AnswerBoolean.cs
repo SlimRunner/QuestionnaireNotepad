@@ -44,7 +44,7 @@ namespace QuestionnaireNotepad.Libraries
         }
 
         /// <summary>
-        /// Returns a plain-text friendly value for this object.
+        /// Returns a formatted plain-text value for this object.
         /// </summary>
         /// <returns>A string that represents the content of the object</returns>
         /// <exception cref="Exception"></exception>
