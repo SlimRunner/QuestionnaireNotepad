@@ -1,6 +1,6 @@
 ﻿namespace QuestionnaireNotepad
 {
-    partial class Form1
+    partial class DataManager
     {
         /// <summary>
         /// Required designer variable.

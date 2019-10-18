@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace QuestionnaireNotepad
 {
-    public partial class Form1 : Form
+    public partial class DataManager : Form
     {
-        public Form1()
+        public DataManager()
         {
             InitializeComponent();
         }
