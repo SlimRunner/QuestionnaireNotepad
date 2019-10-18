@@ -52,6 +52,8 @@
     <Compile Include="DataManager.Designer.cs">
       <DependentUpon>DataManager.cs</DependentUpon>
     </Compile>
+    <Compile Include="Libraries\AnswerSharedTypes.cs" />
+    <Compile Include="Libraries\IAnswerType.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -76,8 +78,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Libraries\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
