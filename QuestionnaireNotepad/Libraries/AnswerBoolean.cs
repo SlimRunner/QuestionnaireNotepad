@@ -11,6 +11,9 @@ namespace QuestionnaireNotepad.Libraries
     /// </summary>
     class AnswerBoolean : IAnswerType<string>
     {
+        /// <summary>
+        /// Contains the boolean assertion of the question.
+        /// </summary>
         public TriStateQuestion Value { get; set; }
 
         /// <summary>

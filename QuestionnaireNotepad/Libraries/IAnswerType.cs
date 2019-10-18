@@ -9,6 +9,7 @@ namespace QuestionnaireNotepad.Libraries
     /// <summary>
     /// Interface for types of answers supported
     /// </summary>
+    /// <typeparam name="T">Intrinsic type of the item.</typeparam>
     interface IAnswerType<T>
     {
         /// <summary>
