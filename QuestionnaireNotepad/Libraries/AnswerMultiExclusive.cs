@@ -49,7 +49,7 @@ namespace QuestionnaireNotepad.Libraries
                 }
                 else
                 {
-                    throw new IndexOutOfRangeException;
+                    throw new IndexOutOfRangeException();
                 }
             }
         }
