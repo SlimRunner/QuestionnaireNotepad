@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace QuestionnaireNotepad.Libraries
 {
-    class AnswerMultiExclusive : IAnswerType<string>
+    class AnswerMultiExclusive : IAnswerType
     {
         //TODO: Implement position independent values
 
@@ -79,15 +79,15 @@ namespace QuestionnaireNotepad.Libraries
         /// <returns>A string that represents the content of the object</returns>
         public string GetFlatText()
         {
-            string retval = "";
+            StringBuilder retval = new StringBuilder("");
 
             foreach (var item in Choices)
             {
-                retval += item + "$,";
+                retval.Append(item + "$,");
             }
-            retval += "$:" + Pick;
+            retval.Append("$:" + Pick);
 
-            return retval;
+            return retval.ToString();
         }
 
         /// <summary>
@@ -121,7 +121,7 @@ namespace QuestionnaireNotepad.Libraries
         /// Returns the type of this answer.
         /// </summary>
         /// <returns>Returns an value defined by the enumeration AnswerTypes</returns>
-        AnswerTypes IAnswerType<string>.GetType()
+        AnswerTypes IAnswerType.GetType()
         {
             return AnswerTypes.MULTI_EX;
         }

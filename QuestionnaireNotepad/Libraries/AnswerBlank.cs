@@ -9,7 +9,7 @@ namespace QuestionnaireNotepad.Libraries
     /// <summary>
     /// Defines a blank field for student-typed answers.
     /// </summary>
-    class AnswerBlank : IAnswerType<string>
+    class AnswerBlank : IAnswerType
     {
         /// <summary>
         /// Contains the body of text of the answer.
@@ -74,7 +74,7 @@ namespace QuestionnaireNotepad.Libraries
         /// Returns the type of this answer.
         /// </summary>
         /// <returns>Returns an value defined by the enumeration AnswerTypes</returns>
-        AnswerTypes IAnswerType<string>.GetType()
+        AnswerTypes IAnswerType.GetType()
         {
             return AnswerTypes.BLANK;
         }

@@ -11,7 +11,7 @@ namespace QuestionnaireNotepad.Libraries
     /// <summary>
     /// Defines a multiple choice answer with all-inclusive answers.
     /// </summary>
-    class AnswerMultiInclusive : IAnswerType<kValPair>
+    class AnswerMultiInclusive : IAnswerType
     {
         /// <summary>
         /// Contains the pair of text and check state of each answer item.
@@ -52,14 +52,14 @@ namespace QuestionnaireNotepad.Libraries
         /// <returns>A string that represents the content of the object</returns>
         public string GetFlatText()
         {
-            string retval = "";
+            StringBuilder retval = new StringBuilder("");
 
             foreach (var item in Choices)
             {
-                retval += item.Key + "$:" + item.Value + "$,";
+                retval.Append(item.Key + "$:" + item.Value + "$,");
             }
 
-            return retval;
+            return retval.ToString();
         }
 
         /// <summary>
@@ -68,11 +68,23 @@ namespace QuestionnaireNotepad.Libraries
         /// <param name="index">Index of the answer to retrieve.</param>
         /// <returns>A string that represents the content of one item in the object</returns>
         /// <exception cref="ArgumentException"></exception>
-        public kValPair GetItem(int index)
+        public string GetItem(int index)
         {
             if (index < GetTotalChoices() && index >= 0)
             {
-                return Choices[index];
+                return Choices[index].Key + "$:" + Choices[index].Value;
+            }
+            else
+            {
+                throw new IndexOutOfRangeException();
+            }
+        }
+
+        public void GetItem(int index, out kValPair value)
+        {
+            if (index < GetTotalChoices() && index >= 0)
+            {
+                value = Choices[index];
             }
             else
             {
@@ -93,7 +105,7 @@ namespace QuestionnaireNotepad.Libraries
         /// Returns the type of this answer.
         /// </summary>
         /// <returns>Returns an value defined by the enumeration AnswerTypes</returns>
-        AnswerTypes IAnswerType<kValPair>.GetType()
+        AnswerTypes IAnswerType.GetType()
         {
             return AnswerTypes.MULTI_IN;
         }

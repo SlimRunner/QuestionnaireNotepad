@@ -9,7 +9,7 @@ namespace QuestionnaireNotepad.Libraries
     /// <summary>
     /// Defines a true/false field for answers.
     /// </summary>
-    class AnswerBoolean : IAnswerType<string>
+    class AnswerBoolean : IAnswerType
     {
         /// <summary>
         /// Contains the boolean assertion of the question.
@@ -94,7 +94,7 @@ namespace QuestionnaireNotepad.Libraries
         /// Returns the type of this answer.
         /// </summary>
         /// <returns>Returns an value defined by the enumeration AnswerTypes</returns>
-        AnswerTypes IAnswerType<string>.GetType()
+        AnswerTypes IAnswerType.GetType()
         {
             return AnswerTypes.BOOLEAN;
         }
