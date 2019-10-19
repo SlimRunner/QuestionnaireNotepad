@@ -59,6 +59,7 @@
     <Compile Include="Libraries\AnswerSharedTypes.cs" />
     <Compile Include="Libraries\IAnswerType.cs" />
     <Compile Include="Libraries\QuestionItem.cs" />
+    <Compile Include="Libraries\Questionnaire.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
