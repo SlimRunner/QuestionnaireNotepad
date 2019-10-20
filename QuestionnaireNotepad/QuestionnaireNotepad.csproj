@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataParsing\RecordDispatcher.cs" />
     <Compile Include="GUI\DataManager.cs">
       <SubType>Form</SubType>
     </Compile>
